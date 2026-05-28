@@ -3,960 +3,1706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Literacy for Tanzanian Teens</title>
+    <title>Financial Literacy & Self-Leadership Development for Teens</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-        
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 40px;
             text-align: center;
         }
-        
-        header h1 {
+
+        .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
-        
-        header p {
-            font-size: 1.1em;
+
+        .header p {
+            font-size: 1.2em;
             opacity: 0.9;
         }
-        
-        .flag {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        nav {
-            background: #f8f9fa;
-            padding: 15px 20px;
-            border-bottom: 2px solid #e9ecef;
+
+        .nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
+            background: #f8f9fa;
+            overflow-x: auto;
+            border-bottom: 3px solid #e9ecef;
         }
-        
-        nav button {
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 8px 16px;
-            border-radius: 5px;
+
+        .nav-btn {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            background: transparent;
             cursor: pointer;
             font-size: 1em;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s;
+            white-space: nowrap;
         }
-        
-        nav button:hover {
-            background: #667eea;
-            color: white;
+
+        .nav-btn:hover {
+            background: #e9ecef;
         }
-        
-        nav button.active {
-            background: #667eea;
-            color: white;
-        }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        h2 {
-            color: #1e3c72;
-            margin-bottom: 20px;
+
+        .nav-btn.active {
+            background: white;
+            color: #667eea;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .module {
+            display: none;
+        }
+
+        .module.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
             font-size: 1.8em;
         }
-        
-        h3 {
-            color: #2a5298;
-            margin-top: 20px;
+
+        .section h3 {
+            color: #495057;
+            margin: 20px 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .example-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #e9ecef;
+        }
+
+        .example-box h4 {
+            color: #764ba2;
             margin-bottom: 10px;
+        }
+
+        .interactive-activity {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px dashed #667eea;
+        }
+
+        .interactive-activity h4 {
+            color: #667eea;
+            margin-bottom: 15px;
             font-size: 1.2em;
         }
-        
-        .highlight-box {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        
-        .tip {
-            background: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .warning {
-            background: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .example {
-            background: #f5f5f5;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        .budget-table {
+
+        input[type="number"], input[type="text"], select, textarea {
             width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .budget-table th,
-        .budget-table td {
             padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+            margin: 8px 0;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
         }
-        
-        .budget-table th {
+
+        button.calc-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        button.calc-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .result {
+            background: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box strong {
+            color: #856404;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #e9ecef;
+        }
+
+        .checklist li:hover {
+            border-color: #667eea;
+        }
+
+        .checklist li.checked {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .checklist li::before {
+            content: '☐ ';
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .checklist li.checked::before {
+            content: '☑ ';
+        }
+
+        .scenario-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .scenario-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .choice-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .choice-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 2px solid #667eea;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .choice-btn:hover {
             background: #667eea;
             color: white;
         }
-        
-        .budget-table tr:hover {
-            background: #f9f9f9;
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
         }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+
+        .feedback.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .progress-tracker {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             margin: 20px 0;
         }
-        
-        .card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        
-        .card-icon {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        
-        .card h4 {
-            color: #1e3c72;
-            margin-bottom: 10px;
-        }
-        
-        .currency {
-            color: #667eea;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-        }
-        
-        footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            border-top: 2px solid #e9ecef;
-        }
-        
+
         .progress-bar {
             width: 100%;
-            height: 10px;
+            height: 30px;
             background: #e9ecef;
-            border-radius: 5px;
-            margin: 10px 0;
+            border-radius: 15px;
             overflow: hidden;
+            margin-top: 10px;
         }
-        
+
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
         }
-        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
         @media (max-width: 768px) {
-            header h1 {
+            .header h1 {
                 font-size: 1.8em;
             }
             
-            nav {
+            .nav {
                 flex-direction: column;
             }
             
-            nav button {
-                width: 100%;
+            .content {
+                padding: 20px;
             }
             
-            .grid {
-                grid-template-columns: 1fr;
+            .choice-buttons {
+                flex-direction: column;
+            }
+            
+            .choice-btn {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="flag">🇹🇿</div>
-            <h1>Financial Literacy for Tanzanian Teenagers</h1>
-            <p>Master Your Money in Tanzania</p>
-        </header>
-        
-        <nav>
-            <button class="nav-btn active" data-section="basics">Basics</button>
-            <button class="nav-btn" data-section="budgeting">Budgeting</button>
-            <button class="nav-btn" data-section="saving">Saving</button>
-            <button class="nav-btn" data-section="earning">Earning</button>
-            <button class="nav-btn" data-section="spending">Smart Spending</button>
-            <button class="nav-btn" data-section="digital">Digital Money</button>
-            <button class="nav-btn" data-section="future">Future Planning</button>
-        </nav>
-        
+        <div class="header">
+            <h1>💰 Financial Literacy & Self-Leadership Development for Teens</h1>
+            <p>Essential Life Skills for Your Future Success</p>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn active" onclick="showModule('money')">💵 Money Management</button>
+            <button class="nav-btn" onclick="showModule('investment')">📈 Investment</button>
+            <button class="nav-btn" onclick="showModule('entrepreneurship')">💡 Entrepreneurship</button>
+            <button class="nav-btn" onclick="showModule('digital')">💻 Digital Literacy</button>
+            <button class="nav-btn" onclick="showModule('leadership')">🎯 Self-Leadership</button>
+        </div>
+
         <div class="content">
-            <!-- BASICS SECTION -->
-            <div id="basics" class="section active">
-                <h2>📚 Financial Basics</h2>
-                
-                <h3>What is Money?</h3>
-                <p>Money is a medium of exchange used to buy goods and services. In Tanzania, we use the Tanzanian Shilling (TSh). Understanding money and how to manage it is a crucial life skill that will help you make better decisions for your future.</p>
-                
-                <div class="highlight-box">
-                    <strong>Currency Info:</strong> The Tanzanian Shilling (TSh) is the official currency of Tanzania. As of 2024, approximately 1 USD = 2,500 TSh (rates may vary).
-                </div>
-                
-                <h3>Why Financial Literacy Matters</h3>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Make better decisions about money</li>
-                    <li>Avoid debt and financial stress</li>
-                    <li>Build wealth and security</li>
-                    <li>Prepare for future opportunities</li>
-                    <li>Support your family if needed</li>
-                </ul>
-                
-                <h3>Key Financial Concepts</h3>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">💰</div>
-                        <h4>Income</h4>
-                        <p>Money you earn from work, business, or investments</p>
+            <!-- MODULE 1: PERSONAL MONEY MANAGEMENT -->
+            <div id="money" class="module active">
+                <div class="section">
+                    <h2>1. Personal Money Management</h2>
+                    <p>Learn to control your money instead of letting it control you. These skills will serve you for life!</p>
+
+                    <h3>Understanding Income vs. Expenses</h3>
+                    <div class="example-box">
+                        <h4>📊 Real Teen Example: Sarah's Part-Time Job</h4>
+                        <p><strong>Sarah earns $400/month</strong> from her weekend job at a café. Here's her money breakdown:</p>
+                        <table>
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Percentage</th>
+                            </tr>
+                            <tr>
+                                <td>Income</td>
+                                <td>$400</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Savings (Pay Yourself First!)</td>
+                                <td>$80</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Bill</td>
+                                <td>$40</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>Transportation</td>
+                                <td>$60</td>
+                                <td>15%</td>
+                            </tr>
+                            <tr>
+                                <td>Entertainment</td>
+                                <td>$100</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>Food/Snacks</td>
+                                <td>$80</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>Clothing</td>
+                                <td>$40</td>
+                                <td>10%</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">💸</div>
-                        <h4>Expenses</h4>
-                        <p>Money you spend on goods and services</p>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 1: Create Your Personal Budget</h4>
+                        <p>Enter your monthly income (allowance, part-time job, gifts):</p>
+                        <input type="number" id="income" placeholder="Enter your monthly income" />
+                        
+                        <p>Now allocate your money using the 50/30/20 rule:</p>
+                        <ul style="list-style: none; padding: 10px 0;">
+                            <li>✅ 50% for Needs (phone, transport, essentials)</li>
+                            <li>✅ 30% for Wants (entertainment, clothes, hobbies)</li>
+                            <li>✅ 20% for Savings & Goals</li>
+                        </ul>
+                        
+                        <button class="calc-btn" onclick="calculateBudget()">Calculate My Budget</button>
+                        
+                        <div id="budgetResult" class="result"></div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🏦</div>
-                        <h4>Savings</h4>
-                        <p>Money you set aside for future needs</p>
+
+                    <h3>The Power of Tracking Your Spending</h3>
+                    <div class="example-box">
+                        <h4>📱 Real Story: Marcus Discovers His "Money Leaks"</h4>
+                        <p>Marcus, 17, thought he was broke all the time. Then he tracked his spending for one month:</p>
+                        <ul style="padding-left: 20px; margin-top: 10px;">
+                            <li>Daily coffee: $5 × 30 days = <strong>$150</strong></li>
+                            <li>Impulse app purchases: <strong>$45</strong></li>
+                            <li>Fast food lunches: $12 × 20 days = <strong>$240</strong></li>
+                            <li><strong>Total "leaks": $435/month!</strong></li>
+                        </ul>
+                        <p style="margin-top: 10px;">By packing lunch 3 days/week and making coffee at home, Marcus saved <strong>$200/month</strong> - that's $2,400/year!</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">📊</div>
-                        <h4>Budget</h4>
-                        <p>A plan for how you'll spend your money</p>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Use free apps like Mint, YNAB (You Need A Budget), or even a simple spreadsheet to track every dollar for 30 days. You'll be shocked at what you discover!
                     </div>
-                </div>
-                
-                <h3>The Importance of Financial Goals</h3>
-                <p>Having clear financial goals helps you stay focused and motivated. Goals can be:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Short-term (1-3 months):</strong> Buying new school uniform, saving for a phone</li>
-                    <li><strong>Medium-term (6-12 months):</strong> Saving for a laptop, paying for a course</li>
-                    <li><strong>Long-term (1+ years):</strong> University fees, starting a business, home ownership</li>
-                </ul>
-            </div>
-            
-            <!-- BUDGETING SECTION -->
-            <div id="budgeting" class="section">
-                <h2>📋 Creating a Budget</h2>
-                
-                <p>A budget is a detailed plan that shows how much money you expect to earn and how you plan to spend it. Creating a budget helps you:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Control your spending</li>
-                    <li>Save money regularly</li>
-                    <li>Reduce financial stress</li>
-                    <li>Reach your financial goals</li>
-                </ul>
-                
-                <h3>Steps to Create a Budget</h3>
-                <div class="example">
-                    <h4>Step 1: Calculate Your Income</h4>
-                    <p>List all sources of money coming in. For a student, this might include:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Pocket money from parents</li>
-                        <li>Part-time job earnings</li>
-                        <li>Money from selling items</li>
-                        <li>Business/hustle income (e.g., tutoring, vending)</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>Step 2: List Your Expenses</h4>
-                    <p>Categorize your spending:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Essential:</strong> Food, transport, school fees, utilities</li>
-                        <li><strong>Important:</strong> Clothes, toiletries, phone credit/data</li>
-                        <li><strong>Optional:</strong> Entertainment, games, eating out</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>Step 3: Calculate the Difference</h4>
-                    <p>Income - Expenses = Surplus (or Deficit)</p>
-                </div>
-                
-                <h3>Sample Monthly Budget for a Tanzanian Teenager</h3>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Amount (TSh)</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3" style="background: #667eea; color: white;"><strong>INCOME</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Monthly pocket money</td>
-                            <td class="currency">100,000</td>
-                            <td>From parents</td>
-                        </tr>
-                        <tr>
-                            <td>Part-time work</td>
-                            <td class="currency">50,000</td>
-                            <td>Tutoring, weekend work</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOTAL INCOME</strong></td>
-                            <td class="currency"><strong>150,000</strong></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="background: #667eea; color: white;"><strong>ESSENTIAL EXPENSES</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Food/lunch at school</td>
-                            <td class="currency">30,000</td>
-                            <td>3,000-5,000 per day</td>
-                        </tr>
-                        <tr>
-                            <td>Transport</td>
-                            <td class="currency">20,000</td>
-                            <td>To/from school or work</td>
-                        </tr>
-                        <tr>
-                            <td>Phone credit/data</td>
-                            <td class="currency">10,000</td>
-                            <td>Communication</td>
-                        </tr>
-                        <tr>
-                            <td>School supplies</td>
-                            <td class="currency">15,000</td>
-                            <td>Books, pens, notebooks</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="background: #667eea; color: white;"><strong>OPTIONAL EXPENSES</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Entertainment (movies, games)</td>
-                            <td class="currency">15,000</td>
-                            <td>Fun activities</td>
-                        </tr>
-                        <tr>
-                            <td>Clothes & shoes</td>
-                            <td class="currency">20,000</td>
-                            <td>Monthly average</td>
-                        </tr>
-                        <tr>
-                            <td>Social outings</td>
-                            <td class="currency">10,000</td>
-                            <td>Eating out with friends</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="background: #667eea; color: white;"><strong>SAVINGS</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Emergency fund</td>
-                            <td class="currency">20,000</td>
-                            <td>For unexpected needs</td>
-                        </tr>
-                        <tr>
-                            <td><strong>TOTAL EXPENSES & SAVINGS</strong></td>
-                            <td class="currency"><strong>150,000</strong></td>
-                            <td><strong>Balanced</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="tip">
-                    <strong>💡 Pro Tip:</strong> The 50/30/20 rule is a popular budgeting method:
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>50% on needs (essential expenses)</li>
-                        <li>30% on wants (entertainment, extras)</li>
-                        <li>20% on savings and debt repayment</li>
-                    </ul>
+
+                    <h3>Setting and Achieving Money Goals</h3>
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 2: Goal Planning Calculator</h4>
+                        <p>What do you want to save for?</p>
+                        <input type="text" id="goalName" placeholder="e.g., New laptop, car, college" />
+                        
+                        <p>How much does it cost?</p>
+                        <input type="number" id="goalAmount" placeholder="Enter total cost" />
+                        
+                        <p>How much can you save per month?</p>
+                        <input type="number" id="monthlySavings" placeholder="Enter monthly savings" />
+                        
+                        <button class="calc-btn" onclick="calculateGoal()">Calculate Timeline</button>
+                        
+                        <div id="goalResult" class="result"></div>
+                    </div>
+
+                    <div class="scenario-card">
+                        <h4>🤔 Decision Scenario: The Birthday Money Dilemma</h4>
+                        <p>You just received $200 for your birthday. Your friends are going to a concert that costs $150. You've been saving for a new gaming console ($500, you have $250 saved). What do you do?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('scenario1', 'a')">
+                                A) Spend $150 on concert - YOLO!
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('scenario1', 'b')">
+                                B) Save all $200 toward console
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('scenario1', 'c')">
+                                C) Save $150, spend $50 on something small
+                            </button>
+                        </div>
+                        
+                        <div id="scenario1-feedback" class="feedback"></div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- SAVING SECTION -->
-            <div id="saving" class="section">
-                <h2>🏦 The Power of Saving</h2>
-                
-                <h3>Why Save Money?</h3>
-                <p>Saving is one of the most important financial habits you can develop. It provides:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Security:</strong> A safety net for emergencies</li>
-                    <li><strong>Opportunity:</strong> Funds to pursue dreams and goals</li>
-                    <li><strong>Freedom:</strong> Less stress and more choices in life</li>
-                    <li><strong>Wealth:</strong> The foundation of financial growth</li>
-                </ul>
-                
-                <h3>Where to Save in Tanzania</h3>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">🏦</div>
-                        <h4>Banks</h4>
-                        <p>Offer savings accounts with interest. Popular banks: NBC, CRDB, TIB</p>
+
+            <!-- MODULE 2: FINANCIAL INVESTMENT -->
+            <div id="investment" class="module">
+                <div class="section">
+                    <h2>2. Financial Investment</h2>
+                    <p>Make your money work FOR you. Learn how wealth actually grows!</p>
+
+                    <h3>Understanding Compound Interest: The 8th Wonder of the World</h3>
+                    <div class="example-box">
+                        <h4>🚀 The Tale of Two Friends: Starting Early vs. Starting Late</h4>
+                        <table>
+                            <tr>
+                                <th>Investor</th>
+                                <th>Starting Age</th>
+                                <th>Monthly Investment</th>
+                                <th>Years Investing</th>
+                                <th>Total at Age 65</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Emma (Early Bird)</strong></td>
+                                <td>18</td>
+                                <td>$100</td>
+                                <td>10 years only</td>
+                                <td><strong>$338,000</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Jake (Late Starter)</strong></td>
+                                <td>28</td>
+                                <td>$100</td>
+                                <td>37 years</td>
+                                <td><strong>$264,000</strong></td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 15px;"><strong>Emma invested for only 10 years but ended with MORE money because she started earlier!</strong> That's the magic of compound interest at 8% annual return.</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">📱</div>
-                        <h4>Mobile Money</h4>
-                        <p>M-Pesa, Airtel Money - save and transfer easily via phone</p>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 3: Compound Interest Calculator</h4>
+                        <p>Initial Investment:</p>
+                        <input type="number" id="principal" placeholder="Starting amount (can be $0)" />
+                        
+                        <p>Monthly Contribution:</p>
+                        <input type="number" id="monthly" placeholder="How much you'll add each month" />
+                        
+                        <p>Expected Annual Return (%):</p>
+                        <input type="number" id="rate" placeholder="Average is 8-10% for stocks" value="8" />
+                        
+                        <p>Number of Years:</p>
+                        <input type="number" id="years" placeholder="How long you'll invest" />
+                        
+                        <button class="calc-btn" onclick="calculateCompound()">See Your Future Wealth!</button>
+                        
+                        <div id="compoundResult" class="result"></div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🏘️</div>
-                        <h4>SACCO</h4>
-                        <p>Savings & Credit Cooperative Societies - community-based saving</p>
+
+                    <h3>Investment Options for Teens</h3>
+                    <div class="example-box">
+                        <h4>🎓 Where Can You Actually Invest as a Teen?</h4>
+                        
+                        <h4 style="margin-top: 20px;">1. Custodial Investment Accounts</h4>
+                        <p>Parents open these for you. You own it, they manage it until you're 18-21.</p>
+                        <ul style="padding-left: 20px;">
+                            <li><strong>UGMA/UTMA accounts:</strong> Flexible, can invest in stocks, bonds, mutual funds</li>
+                            <li><strong>Custodial Roth IRA:</strong> If you have earned income (job), you can invest for retirement - tax-free growth!</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">2. Index Funds - The "Set and Forget" Strategy</h4>
+                        <p>Instead of picking individual stocks (risky!), invest in index funds that own pieces of 500+ companies:</p>
+                        <ul style="padding-left: 20px;">
+                            <li><strong>S&P 500 Index Fund:</strong> Owns America's 500 biggest companies</li>
+                            <li><strong>Total Market Index:</strong> Owns virtually every U.S. stock</li>
+                            <li><strong>Why it works:</strong> If one company fails, you still own 499 others!</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">3. High-Yield Savings Accounts</h4>
+                        <p>Not technically "investing," but pays 4-5% interest vs. 0.01% at big banks. Great for emergency funds!</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🪴</div>
-                        <h4>At Home</h4>
-                        <p>Piggy bank - good for short-term savings, though no interest</p>
+
+                    <div class="tip-box">
+                        <strong>💡 Golden Rule of Investing:</strong> Never invest money you'll need in the next 5 years. The stock market goes up and down - time smooths out the bumps!
                     </div>
-                </div>
-                
-                <h3>Saving Tips for Teenagers</h3>
-                <div class="tip">
-                    <strong>✓ Automate Your Savings</strong>
-                    <p>Set up automatic transfers on payday. Even 5,000-10,000 TSh per week adds up! Start with what you can afford.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>✓ Use the "Pay Yourself First" Method</strong>
-                    <p>Before spending on wants, transfer money to savings. Treat savings as a non-negotiable expense.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>✓ Set Specific Saving Goals</strong>
-                    <p>Instead of "save money," aim for "save 200,000 TSh for a laptop in 6 months" or "save 50,000 TSh for university books by next semester."</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>✓ Track Your Progress</strong>
-                    <p>Keep a record of how much you've saved. Watching your balance grow is motivating!</p>
-                </div>
-                
-                <h3>The Magic of Compound Interest</h3>
-                <div class="highlight-box">
-                    <p><strong>Compound interest</strong> means earning interest on your interest. Even small savings can grow significantly over time.</p>
-                    <p style="margin-top: 10px;"><strong>Example:</strong> If you save 20,000 TSh monthly in a bank account earning 5% annual interest, after 3 years you'll have about 770,000 TSh - that's 10,000 TSh in free interest!</p>
-                </div>
-                
-                <h3>Emergency Fund</h3>
-                <p>An emergency fund is money set aside for unexpected situations like:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>School supplies emergency</li>
-                    <li>Medical expenses</li>
-                    <li>Transport costs when sick</li>
-                    <li>Help for family members</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Goal:</strong> Save 3-6 months of expenses. Start with just 2-3 weeks of expenses.</p>
-            </div>
-            
-            <!-- EARNING SECTION -->
-            <div id="earning" class="section">
-                <h2>💼 Ways to Earn Money</h2>
-                
-                <h3>As a Student in Tanzania, You Can Earn Money By:</h3>
-                
-                <div class="example">
-                    <h4>🎓 Academic Services</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Tutoring:</strong> Help younger students in subjects you excel at (2,000-5,000 TSh/hour)</li>
-                        <li><strong>Homework help:</strong> Assist peers with assignments</li>
-                        <li><strong>Test prep:</strong> Prepare students for exams like CSEE/NECTA</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>🛍️ Small Business/Vending</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>School supplies:</strong> Sell pens, books, notebooks at school</li>
-                        <li><strong>Snacks:</strong> Prepare and sell mandazi, samosas, popcorn</li>
-                        <li><strong>Phone credit:</strong> Buy in bulk and resell to earn commission</li>
-                        <li><strong>Used items:</strong> Buy and sell used textbooks, phones, clothes</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>🔧 Services</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Tech support:</strong> Help people with phone/computer issues</li>
-                        <li><strong>Social media help:</strong> Create content for local businesses</li>
-                        <li><strong>Chores:</strong> Babysitting, house cleaning, yard work</li>
-                        <li><strong>Freelance work:</strong> Writing, graphic design, data entry online</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>👨‍💻 Digital Opportunities</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Content creation:</strong> YouTube, TikTok, Instagram (if age-appropriate)</li>
-                        <li><strong>Online platforms:</strong> Upwork, Fiverr (for skills-based work)</li>
-                        <li><strong>Data entry:</strong> Remote work from your computer</li>
-                    </ul>
-                </div>
-                
-                <h3>Income Ideas Ranked by Difficulty</h3>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>Idea</th>
-                            <th>Difficulty</th>
-                            <th>Potential Earnings</th>
-                            <th>Time Commitment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tutoring</td>
-                            <td>Low</td>
-                            <td>5,000-10,000 TSh/hour</td>
-                            <td>Flexible</td>
-                        </tr>
-                        <tr>
-                            <td>Selling phone credit</td>
-                            <td>Low</td>
-                            <td>500-2,000 TSh/sale</td>
-                            <td>Very flexible</td>
-                        </tr>
-                        <tr>
-                            <td>Odd jobs</td>
-                            <td>Low</td>
-                            <td>5,000-20,000 TSh/day</td>
-                            <td>Flexible</td>
-                        </tr>
-                        <tr>
-                            <td>Small vending business</td>
-                            <td>Medium</td>
-                            <td>20,000-50,000 TSh/month</td>
-                            <td>2-4 hours/day</td>
-                        </tr>
-                        <tr>
-                            <td>Freelance online work</td>
-                            <td>Medium</td>
-                            <td>10,000-100,000 TSh/project</td>
-                            <td>Variable</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="warning">
-                    <strong>⚠️ Important:</strong> Always balance earning with your studies. Education is your most valuable investment for the future!
+
+                    <h3>Understanding Risk vs. Reward</h3>
+                    <div class="scenario-card">
+                        <h4>🤔 Investment Challenge: Choose Your Strategy</h4>
+                        <p>You have $1,000 to invest. You won't need this money for 10 years. Which would you choose?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('investment1', 'a')">
+                                A) Savings account (1% return, zero risk)
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('investment1', 'b')">
+                                B) Index fund (8-10% average, moderate ups/downs)
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('investment1', 'c')">
+                                C) Individual tech stocks (could be 20% or -50%)
+                            </button>
+                        </div>
+                        
+                        <div id="investment1-feedback" class="feedback"></div>
+                    </div>
+
+                    <div class="interactive-activity">
+                        <h4>📊 Activity 4: Investment Comparison</h4>
+                        <p>Compare what happens to $100/month over 10 years:</p>
+                        <table>
+                            <tr>
+                                <th>Strategy</th>
+                                <th>Return Rate</th>
+                                <th>Total After 10 Years</th>
+                                <th>Your Gain</th>
+                            </tr>
+                            <tr>
+                                <td>Under mattress</td>
+                                <td>0%</td>
+                                <td>$12,000</td>
+                                <td>$0</td>
+                            </tr>
+                            <tr>
+                                <td>Savings account</td>
+                                <td>1%</td>
+                                <td>$12,600</td>
+                                <td>$600</td>
+                            </tr>
+                            <tr>
+                                <td>Bond fund</td>
+                                <td>4%</td>
+                                <td>$14,700</td>
+                                <td>$2,700</td>
+                            </tr>
+                            <tr>
+                                <td>Index fund (stocks)</td>
+                                <td>8%</td>
+                                <td>$18,200</td>
+                                <td>$6,200</td>
+                            </tr>
+                            <tr>
+                                <td>Aggressive growth</td>
+                                <td>12%</td>
+                                <td>$23,000</td>
+                                <td>$11,000</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 15px;"><strong>Key Insight:</strong> Small differences in return rates create HUGE differences over time!</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- SMART SPENDING SECTION -->
-            <div id="spending" class="section">
-                <h2>🛒 Smart Spending Habits</h2>
-                
-                <h3>The Difference Between Needs and Wants</h3>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">⭐</div>
-                        <h4>NEEDS</h4>
-                        <p>Essential for survival: Food, water, shelter, clothing, school fees, medicine</p>
+
+            <!-- MODULE 3: ENTREPRENEURSHIP -->
+            <div id="entrepreneurship" class="module">
+                <div class="section">
+                    <h2>3. Entrepreneurship (Intrapreneurship)</h2>
+                    <p>Turn your ideas into income. Learn to think like a business owner!</p>
+
+                    <h3>The Entrepreneurial Mindset</h3>
+                    <div class="example-box">
+                        <h4>🌟 Real Teen Success Stories</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>Jasmine, 16 - Custom Sneaker Artist</h4>
+                            <ul style="padding-left: 20px;">
+                                <li><strong>Started:</strong> Customizing her own shoes, friends asked for the same</li>
+                                <li><strong>Investment:</strong> $150 in paints and supplies</li>
+                                <li><strong>First month:</strong> 3 pairs at $75 each = $225</li>
+                                <li><strong>After 6 months:</strong> Instagram following of 3,000, earning $800-1,200/month</li>
+                                <li><strong>Key skill:</strong> She learned digital marketing on YouTube (free!)</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <h4>David, 17 - Lawn Care Business</h4>
+                            <ul style="padding-left: 20px;">
+                                <li><strong>Started:</strong> One neighbor's lawn for $25</li>
+                                <li><strong>Investment:</strong> Used dad's mower initially, bought own for $300 after first 12 customers</li>
+                                <li><strong>Growth:</strong> Created flyers, door-to-door in neighborhood</li>
+                                <li><strong>Current:</strong> 23 regular customers, $2,000-2,500/month in summer</li>
+                                <li><strong>Key skill:</strong> Customer service - reliability builds reputation</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>Aisha, 15 - Online Tutoring</h4>
+                            <ul style="padding-left: 20px;">
+                                <li><strong>Started:</strong> Tutoring younger students in math (her strongest subject)</li>
+                                <li><strong>Investment:</strong> $0 - uses Zoom (free), markets on TikTok</li>
+                                <li><strong>Rate:</strong> $20/hour for middle school students</li>
+                                <li><strong>Schedule:</strong> 8-10 hours/week = $640-800/month</li>
+                                <li><strong>Key skill:</strong> Made free tutorial videos on TikTok, students found her</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">✨</div>
-                        <h4>WANTS</h4>
-                        <p>Nice to have but not essential: Entertainment, latest gadgets, eating out, designer clothes</p>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 5: Discover Your Business Idea</h4>
+                        <p>Complete this self-assessment to find opportunities that match YOUR strengths:</p>
+                        
+                        <ul class="checklist" id="skillsChecklist">
+                            <li onclick="toggleCheck(this)">I'm good with technology/computers</li>
+                            <li onclick="toggleCheck(this)">I'm creative (art, design, writing, music)</li>
+                            <li onclick="toggleCheck(this)">I'm good at explaining things to others</li>
+                            <li onclick="toggleCheck(this)">I enjoy working with my hands</li>
+                            <li onclick="toggleCheck(this)">I'm organized and detail-oriented</li>
+                            <li onclick="toggleCheck(this)">I love working with kids or animals</li>
+                            <li onclick="toggleCheck(this)">I'm athletic/into fitness</li>
+                            <li onclick="toggleCheck(this)">I'm good at social media</li>
+                            <li onclick="toggleCheck(this)">I enjoy cooking or baking</li>
+                            <li onclick="toggleCheck(this)">I'm good at fixing things</li>
+                        </ul>
+                        
+                        <button class="calc-btn" onclick="suggestBusinesses()">Get Business Ideas!</button>
+                        <div id="businessSuggestions" class="result"></div>
                     </div>
-                </div>
-                
-                <h3>Smart Spending Tips</h3>
-                <div class="tip">
-                    <strong>1. Make a Shopping List</strong>
-                    <p>Plan before you go shopping. Stick to your list and avoid impulse purchases.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>2. Wait 24 Hours</strong>
-                    <p>Before buying something you want, wait a day. If you still want it after 24 hours, consider it.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>3. Compare Prices</strong>
-                    <p>Don't just buy from the first place. Check prices at different shops - you might save 1,000-5,000 TSh or more.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>4. Avoid Impulsive Buying</strong>
-                    <p>Don't buy things because "everyone has one" or "it's on sale." Ask yourself: Do I really need this?</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>5. Use Cash When Possible</strong>
-                    <p>When you pay with cash, you physically see your money leaving - it makes you more aware of spending.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>6. Buy Quality Over Quantity</strong>
-                    <p>One good pair of shoes that lasts is better than three cheap pairs that fall apart. Quality saves money long-term.</p>
-                </div>
-                
-                <h3>Avoiding Common Money Mistakes</h3>
-                <div class="warning">
-                    <strong>❌ Peer Pressure Spending</strong>
-                    <p>Don't spend money just to impress friends or fit in. Real friends respect financial responsibility.</p>
-                </div>
-                
-                <div class="warning">
-                    <strong>❌ Emotional Spending</strong>
-                    <p>Don't buy things to feel better when sad or stressed. Find free alternatives like sports, reading, or time with friends.</p>
-                </div>
-                
-                <div class="warning">
-                    <strong>❌ Eating Out Too Much</strong>
-                    <p>Eating lunch at school daily can cost 3,000-5,000 TSh. Packing lunch can save 50,000+ TSh monthly!</p>
-                </div>
-                
-                <div class="warning">
-                    <strong>❌ Subscriptions You Don't Use</strong>
-                    <p>Cancel unused streaming services, apps, or memberships to save money.</p>
-                </div>
-                
-                <h3>Smart Shopping in Tanzania</h3>
-                <div class="example">
-                    <strong>Where to Find Deals:</strong>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Kariakoo Market:</strong> Best for wholesale shopping and bulk deals</li>
-                        <li><strong>Local markets:</strong> Negotiate prices - haggling is expected</li>
-                        <li><strong>End of season:</strong> Buy clothes/items at 30-50% discount</li>
-                        <li><strong>Second-hand shops:</strong> Quality used items at great prices</li>
-                        <li><strong>Online platforms:</strong> OLX, Jumia - compare prices easily</li>
-                    </ul>
+
+                    <h3>The Lean Startup Method for Teens</h3>
+                    <div class="example-box">
+                        <h4>🚀 5 Steps to Test Your Idea (Without Wasting Money)</h4>
+                        
+                        <ol style="padding-left: 25px; line-height: 2;">
+                            <li><strong>Find a Problem:</strong> What annoys people? What do they complain about?</li>
+                            <li><strong>Create a Simple Solution:</strong> Don't build perfection - create a "minimum viable product"</li>
+                            <li><strong>Test with Real Customers:</strong> Sell to 5 people first. Get feedback!</li>
+                            <li><strong>Improve Based on Feedback:</strong> What worked? What didn't?</li>
+                            <li><strong>Scale Up:</strong> Once it works for 5, expand to 50</li>
+                        </ol>
+
+                        <div style="margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 8px;">
+                            <h4>Example: Jasmine's Sneaker Business</h4>
+                            <ol style="padding-left: 25px; line-height: 1.8;">
+                                <li><strong>Problem:</strong> Friends wanted unique sneakers but couldn't afford designer brands</li>
+                                <li><strong>MVP:</strong> Customized one pair for a friend at cost ($30 materials + $45 time = $75)</li>
+                                <li><strong>Test:</strong> Friend posted on Instagram, 3 more orders came in</li>
+                                <li><strong>Feedback:</strong> Customers wanted faster turnaround (she was taking 2 weeks)</li>
+                                <li><strong>Scale:</strong> Bought supplies in bulk (saved 30%), streamlined process to 3-4 days</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 6: Business Plan Starter</h4>
+                        <p><strong>Business Name/Idea:</strong></p>
+                        <input type="text" id="bizName" placeholder="What will you call it?" />
+                        
+                        <p><strong>What problem does it solve?</strong></p>
+                        <textarea id="bizProblem" rows="3" placeholder="Be specific - who has this problem?"></textarea>
+                        
+                        <p><strong>Who are your customers?</strong></p>
+                        <input type="text" id="bizCustomers" placeholder="e.g., teens in my school, parents in my neighborhood" />
+                        
+                        <p><strong>Startup costs needed:</strong></p>
+                        <input type="number" id="bizCosts" placeholder="How much money do you need to start?" />
+                        
+                        <p><strong>Price per product/service:</strong></p>
+                        <input type="number" id="bizPrice" placeholder="What will you charge?" />
+                        
+                        <p><strong>How many sales to break even?</strong></p>
+                        <button class="calc-btn" onclick="calculateBreakeven()">Calculate Breakeven Point</button>
+                        
+                        <div id="breakevenResult" class="result"></div>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Reality Check:</strong> 90% of your first business idea won't work exactly as planned - and that's GOOD! Each "failure" teaches you something. Every successful entrepreneur has a graveyard of failed attempts behind them.
+                    </div>
+
+                    <h3>Marketing Like a Pro (For Free!)</h3>
+                    <div class="scenario-card">
+                        <h4>📱 Social Media Strategy Challenge</h4>
+                        <p>You just launched your lawn care business. You have $0 for advertising. How do you get your first 10 customers?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('marketing1', 'a')">
+                                A) Post once on Instagram and wait
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('marketing1', 'b')">
+                                B) Create before/after videos on TikTok, offer first lawn free to film it
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('marketing1', 'c')">
+                                C) Print 500 flyers and leave them in mailboxes
+                            </button>
+                        </div>
+                        
+                        <div id="marketing1-feedback" class="feedback"></div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- DIGITAL MONEY SECTION -->
-            <div id="digital" class="section">
-                <h2>📱 Digital Money & Mobile Banking</h2>
-                
-                <h3>Mobile Money Services in Tanzania</h3>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">📱</div>
-                        <h4>M-Pesa</h4>
-                        <p>Vodacom's mobile money service. Send money, pay bills, buy credit easily.</p>
+
+            <!-- MODULE 4: DIGITAL LITERACY -->
+            <div id="digital" class="module">
+                <div class="section">
+                    <h2>4. Digital Literacy</h2>
+                    <p>Master the digital world instead of being used by it. These skills are non-negotiable for your future!</p>
+
+                    <h3>Critical Digital Skills Everyone Needs</h3>
+                    <div class="example-box">
+                        <h4>🎯 The Digital Literacy Checklist</h4>
+                        <ul class="checklist" id="digitalSkills">
+                            <li onclick="toggleCheck(this)"><strong>Information Evaluation:</strong> Can you tell real news from fake news?</li>
+                            <li onclick="toggleCheck(this)"><strong>Privacy Protection:</strong> Do you know what data companies collect about you?</li>
+                            <li onclick="toggleCheck(this)"><strong>Digital Citizenship:</strong> Do you think before posting online?</li>
+                            <li onclick="toggleCheck(this)"><strong>Basic Coding:</strong> Can you understand how apps/websites work?</li>
+                            <li onclick="toggleCheck(this)"><strong>Online Safety:</strong> Can you spot scams and phishing?</li>
+                            <li onclick="toggleCheck(this)"><strong>Digital Productivity:</strong> Can you use tools like spreadsheets, docs, presentation software?</li>
+                            <li onclick="toggleCheck(this)"><strong>AI Literacy:</strong> Do you understand how to use AI tools ethically?</li>
+                            <li onclick="toggleCheck(this)"><strong>Digital Footprint:</strong> Do you manage your online reputation?</li>
+                        </ul>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">📱</div>
-                        <h4>Airtel Money</h4>
-                        <p>Airtel's service for money transfers and payments without a bank account.</p>
+
+                    <h3>Spotting Misinformation</h3>
+                    <div class="example-box">
+                        <h4>🕵️ The CRAAP Test for Evaluating Information</h4>
+                        <table>
+                            <tr>
+                                <th>Letter</th>
+                                <th>Stands For</th>
+                                <th>Questions to Ask</th>
+                            </tr>
+                            <tr>
+                                <td><strong>C</strong></td>
+                                <td>Currency</td>
+                                <td>When was this published? Is it still relevant?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>R</strong></td>
+                                <td>Relevance</td>
+                                <td>Does this actually answer my question? Is it for my level?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A</strong></td>
+                                <td>Authority</td>
+                                <td>Who wrote this? What are their credentials? Can I verify them?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A</strong></td>
+                                <td>Accuracy</td>
+                                <td>Can I verify this with other sources? Are there citations?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>P</strong></td>
+                                <td>Purpose</td>
+                                <td>Why was this created? To inform, persuade, or sell?</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🏦</div>
-                        <h4>TigoPesa</h4>
-                        <p>Tigo's mobile money service with competitive rates.</p>
+
+                    <div class="scenario-card">
+                        <h4>🤔 Real or Fake? Test Your Skills</h4>
+                        <p>You see a post: "Scientists discover that sleeping with your phone makes you smarter! Share to unlock the benefits!" It has 10,000 likes. Is it credible?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('digital1', 'a')">
+                                A) It must be true - 10,000 people shared it!
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('digital1', 'b')">
+                                B) Check: Who posted it? Is there a source? Does it sound too good to be true?
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('digital1', 'c')">
+                                C) It doesn't matter - it's just entertainment
+                            </button>
+                        </div>
+                        
+                        <div id="digital1-feedback" class="feedback"></div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">💳</div>
-                        <h4>Bank Accounts</h4>
-                        <p>Digital banking through apps like NBC, CRDB, TIB for teens</p>
+
+                    <h3>Protecting Your Privacy & Digital Footprint</h3>
+                    <div class="example-box">
+                        <h4>👀 What Companies Know About You</h4>
+                        <p>Every app you use collects data. Here's what they typically know:</p>
+                        <ul style="padding-left: 20px; line-height: 2;">
+                            <li>📍 Your exact location history</li>
+                            <li>📱 Every website you visit</li>
+                            <li>🛒 Everything you've ever shopped for</li>
+                            <li>👥 Who you communicate with and when</li>
+                            <li>😊 Your photos (sometimes they scan them with AI)</li>
+                            <li>🎤 Sometimes audio recordings (if you've agreed to terms)</li>
+                            <li>⌚ Your daily routines and sleep patterns</li>
+                        </ul>
+                        
+                        <div class="tip-box" style="margin-top: 15px;">
+                            <strong>💡 Not All Data Collection Is Bad!</strong> It powers features like maps, recommendations, and face recognition in photos. The key is knowing what you're trading and making informed choices.
+                        </div>
+                    </div>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 7: Privacy Audit</h4>
+                        <p>Check which of these privacy-protecting actions you've taken:</p>
+                        <ul class="checklist" id="privacyChecklist">
+                            <li onclick="toggleCheck(this)">I use strong, unique passwords for different accounts</li>
+                            <li onclick="toggleCheck(this)">I have two-factor authentication enabled</li>
+                            <li onclick="toggleCheck(this)">I've reviewed privacy settings on social media</li>
+                            <li onclick="toggleCheck(this)">I regularly delete old posts/photos I regret</li>
+                            <li onclick="toggleCheck(this)">I don't share my exact location publicly</li>
+                            <li onclick="toggleCheck(this)">I think twice before accepting app permissions</li>
+                            <li onclick="toggleCheck(this)">I Google myself to see my digital footprint</li>
+                            <li onclick="toggleCheck(this)">I never use public WiFi for banking/sensitive stuff</li>
+                            <li onclick="toggleCheck(this)">I cover my webcam when not using it</li>
+                            <li onclick="toggleCheck(this)">I read (at least skim) terms before clicking "I agree"</li>
+                        </ul>
+                        <button class="calc-btn" onclick="calculatePrivacyScore()">Calculate My Privacy Score</button>
+                        <div id="privacyScore" class="result"></div>
+                    </div>
+
+                    <h3>AI Literacy: Working WITH Technology</h3>
+                    <div class="example-box">
+                        <h4>🤖 How to Use AI Tools Ethically and Effectively</h4>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <h4>✅ Good Uses of AI (ChatGPT, etc.)</h4>
+                            <ul style="padding-left: 20px; line-height: 1.8;">
+                                <li><strong>Brainstorming partner:</strong> "Give me 10 ideas for a science fair project"</li>
+                                <li><strong>Learning tutor:</strong> "Explain photosynthesis like I'm 10 years old"</li>
+                                <li><strong>Writing assistant:</strong> "Help me outline an essay on..." (but YOU write it)</li>
+                                <li><strong>Debugging code:</strong> "Why isn't this Python loop working?"</li>
+                                <li><strong>Research starting point:</strong> "Summarize the main arguments about..."</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>❌ Unethical Uses</h4>
+                            <ul style="padding-left: 20px; line-height: 1.8;">
+                                <li>Copying AI-written essays and claiming they're yours</li>
+                                <li>Using AI to cheat on tests/homework</li>
+                                <li>Relying on AI without fact-checking (it makes mistakes!)</li>
+                                <li>Using AI to create deepfakes or spread misinformation</li>
+                            </ul>
+                        </div>
+
+                        <div class="tip-box" style="margin-top: 15px;">
+                            <strong>💡 The Golden Rule:</strong> AI should make you smarter, not replace your thinking. Use it as a tool to enhance your abilities, not as a shortcut to avoid learning.
+                        </div>
+                    </div>
+
+                    <h3>Building Your Professional Online Presence</h3>
+                    <div class="example-box">
+                        <h4>🌐 Your Digital Resume: What Colleges & Employers See</h4>
+                        <p><strong>True Story:</strong> 37% of employers research candidates on social media before hiring. 70% have rejected candidates based on what they found.</p>
+                        
+                        <h4 style="margin-top: 20px;">What Helps You:</h4>
+                        <ul style="padding-left: 20px; line-height: 1.8;">
+                            <li>✅ Professional-looking profile photos</li>
+                            <li>✅ Posts about achievements, volunteer work, projects</li>
+                            <li>✅ Respectful interactions in comment sections</li>
+                            <li>✅ Demonstrated interests/hobbies that show character</li>
+                            <li>✅ Grammar/spelling in public posts</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">What Hurts You:</h4>
+                        <ul style="padding-left: 20px; line-height: 1.8;">
+                            <li>❌ Party photos with alcohol/drugs</li>
+                            <li>❌ Offensive jokes or comments</li>
+                            <li>❌ Complaining about school/work publicly</li>
+                            <li>❌ Arguments or drama in comments</li>
+                            <li>❌ Provocative or unprofessional photos</li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-card">
+                        <h4>📸 Decision Time: To Post or Not to Post?</h4>
+                        <p>Your friend took a hilarious video of you at a party. It's funny but you're doing something kind of embarrassing. They want to post it and tag you. What do you do?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('digital2', 'a')">
+                                A) Whatever, it's just for friends - who cares?
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('digital2', 'b')">
+                                B) Ask them not to tag you, or to post without your face showing
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('digital2', 'c')">
+                                C) Make sure they post it on a private account only
+                            </button>
+                        </div>
+                        
+                        <div id="digital2-feedback" class="feedback"></div>
                     </div>
                 </div>
-                
-                <h3>Benefits of Digital Money</h3>
-                <ul style="margin-left: 20px; margin-top: 15px;">
-                    <li>✓ Quick and convenient - transfer money anytime, anywhere</li>
-                    <li>✓ Safer than carrying cash - reduces theft risk</li>
-                    <li>✓ Keep track of spending - digital records help with budgeting</li>
-                    <li>✓ Build credit history - important for future loans</li>
-                    <li>✓ Access to loans and savings products</li>
-                </ul>
-                
-                <h3>Digital Money Safety Tips</h3>
-                <div class="tip">
-                    <strong>🔒 Protect Your PIN</strong>
-                    <p>Never share your M-Pesa, Airtel Money, or bank PIN with anyone, not even friends or family.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>🔒 Use Strong Passwords</strong>
-                    <p>For bank apps, use passwords combining letters, numbers, and special characters.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>🔒 Be Careful of Scams</strong>
-                    <p>Never click suspicious links or provide personal info via SMS or email. Banks won't ask for your PIN online.</p>
-                </div>
-                
-                <div class="tip">
-                    <strong>🔒 Check Your Balance Regularly</strong>
-                    <p>Monitor your account for unauthorized transactions and report suspicious activity immediately.</p>
-                </div>
-                
-                <h3>Getting Started with Mobile Money</h3>
-                <div class="example">
-                    <h4>Steps to Set Up M-Pesa (Example)</h4>
-                    <ol style="margin-left: 20px; margin-top: 10px;">
-                        <li>Visit any Vodacom shop with your national ID</li>
-                        <li>Register and set your 4-digit PIN</li>
-                        <li>Receive SMS confirmation</li>
-                        <li>Start using M-Pesa on your phone</li>
-                        <li>Dial *150# to check balance or visit m-pesa.vodacom.co.tz</li>
-                    </ol>
-                </div>
-                
-                <h3>Common Digital Money Fees (Approximate)</h3>
-                <table class="budget-table">
-                    <thead>
-                        <tr>
-                            <th>Transaction Type</th>
-                            <th>Amount</th>
-                            <th>Fee (TSh)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Money Transfer</td>
-                            <td>10,000 - 50,000</td>
-                            <td>400-500</td>
-                        </tr>
-                        <tr>
-                            <td>Money Transfer</td>
-                            <td>50,000 - 100,000</td>
-                            <td>600-800</td>
-                        </tr>
-                        <tr>
-                            <td>Withdraw Cash</td>
-                            <td>Any amount</td>
-                            <td>1,000+</td>
-                        </tr>
-                        <tr>
-                            <td>Pay Bills</td>
-                            <td>Any amount</td>
-                            <td>0-500</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <p style="margin-top: 15px;"><em>Note: Fees vary by provider and may change. Always confirm before making transactions.</em></p>
             </div>
-            
-            <!-- FUTURE PLANNING SECTION -->
-            <div id="future" class="section">
-                <h2>🚀 Planning Your Financial Future</h2>
-                
-                <h3>Start Young, Benefit Big</h3>
-                <p>The younger you start managing money wisely, the more time your money has to grow. Here's why:</p>
-                <div class="highlight-box">
-                    <p><strong>Time is Your Greatest Asset:</strong> Starting to save at 15 instead of 25 gives your money an extra 10 years to grow. With compound interest, that could mean thousands of shillings more!</p>
-                </div>
-                
-                <h3>Financial Goals Timeline</h3>
-                <div class="example">
-                    <h4>Next 3-6 Months (Short-term)</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Save for school uniform or supplies</li>
-                        <li>Buy a phone or upgrade</li>
-                        <li>Build emergency fund of 100,000 TSh</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>Next 1-2 Years (Medium-term)</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Save for CSEE/A-Level exam fees</li>
-                        <li>Buy a laptop for school/work</li>
-                        <li>Start a small business</li>
-                        <li>Build emergency fund to 500,000 TSh</li>
-                    </ul>
-                </div>
-                
-                <div class="example">
-                    <h4>Next 3-5 Years (Long-term)</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Save for university fees and accommodation</li>
-                        <li>Build emergency fund to 1,000,000 TSh+</li>
-                        <li>Invest in education or skill development</li>
-                        <li>Plan for gap year or vocational training</li>
-                    </ul>
-                </div>
-                
-                <h3>After School: Financial Planning for Young Adults</h3>
-                <div class="card" style="margin: 20px 0;">
-                    <h4>University/Further Education</h4>
-                    <p style="margin-top: 10px;">Start a dedicated savings account early. Calculate total cost and divide by months remaining.</p>
-                    <p style="margin-top: 10px;"><strong>Example:</strong> If university costs 3,000,000 TSh and you have 2 years to save, aim for 125,000 TSh/month.</p>
-                </div>
-                
-                <h3>Understanding Credit & Debt</h3>
-                <div class="highlight-box">
-                    <h4>What is Credit?</h4>
-                    <p style="margin-top: 10px;">Credit is when someone lends you money that you promise to pay back. This could be:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Personal loans from friends/family</li>
-                        <li>Bank loans</li>
-                        <li>Credit cards (future)</li>
-                        <li>Buy-now-pay-later schemes</li>
-                    </ul>
-                </div>
-                
-                <h3>Credit Score & Financial Reputation</h3>
-                <p>Banks track your borrowing and repayment history. This "credit score" affects:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>Whether you can get a loan in the future</li>
-                    <li>How much interest you'll pay</li>
-                    <li>Getting mobile money loans</li>
-                    <li>Renting a home or apartment</li>
-                </ul>
-                
-                <div class="warning">
-                    <strong>⚠️ Build Good Credit Habits Now:</strong>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Pay back any money you borrow, on time</li>
-                        <li>Don't take loans you can't afford to repay</li>
-                        <li>Keep track of debt and create a repayment plan</li>
-                        <li>Avoid unnecessary debt</li>
-                    </ul>
-                </div>
-                
-                <h3>Creating Your Personal Financial Plan</h3>
-                <div class="example">
-                    <h4>My Financial Action Plan</h4>
-                    <ol style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Define Goals:</strong> What do you want to achieve in 3, 6, and 12 months?</li>
-                        <li><strong>Track Income:</strong> Write down all money coming in each month</li>
-                        <li><strong>List Expenses:</strong> Track everything you spend for a month</li>
-                        <li><strong>Create Budget:</strong> Plan how you'll allocate your money</li>
-                        <li><strong>Save Automatically:</strong> Set up automatic transfers to savings</li>
-                        <li><strong>Review Monthly:</strong> Check if you're on track and adjust</li>
-                        <li><strong>Celebrate Progress:</strong> Recognize your financial wins!</li>
-                    </ol>
-                </div>
-                
-                <h3>Key Takeaways for Your Financial Future</h3>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-icon">✓</div>
-                        <h4>Start Early</h4>
-                        <p>The best time to start managing money is now. Every shilling counts.</p>
+
+            <!-- MODULE 5: SELF-LEADERSHIP -->
+            <div id="leadership" class="module">
+                <div class="section">
+                    <h2>5. Self-Leadership</h2>
+                    <p>You can't lead others until you can lead yourself. Master these skills and you'll be unstoppable!</p>
+
+                    <h3>Understanding Self-Leadership</h3>
+                    <div class="example-box">
+                        <h4>🎯 What Is Self-Leadership?</h4>
+                        <p>Self-leadership means being the CEO of your own life. It's about:</p>
+                        <ul style="padding-left: 20px; line-height: 2;">
+                            <li>📋 <strong>Self-awareness:</strong> Knowing your strengths, weaknesses, values, and triggers</li>
+                            <li>🎯 <strong>Goal-setting:</strong> Defining what you want and creating a plan</li>
+                            <li>💪 <strong>Self-discipline:</strong> Doing what needs to be done, even when you don't feel like it</li>
+                            <li>🧠 <strong>Self-motivation:</strong> Finding your "why" and staying driven</li>
+                            <li>📊 <strong>Self-evaluation:</strong> Honestly assessing your progress and adjusting</li>
+                            <li>🌱 <strong>Growth mindset:</strong> Believing you can improve through effort</li>
+                        </ul>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">✓</div>
-                        <h4>Stay Consistent</h4>
-                        <p>Small regular savings are better than sporadic large amounts.</p>
+
+                    <h3>The SMART Goals Framework</h3>
+                    <div class="example-box">
+                        <h4>🎯 Turning Dreams into Achievable Goals</h4>
+                        <table>
+                            <tr>
+                                <th>Letter</th>
+                                <th>Meaning</th>
+                                <th>Bad Example</th>
+                                <th>SMART Example</th>
+                            </tr>
+                            <tr>
+                                <td><strong>S</strong>pecific</td>
+                                <td>Clear and detailed</td>
+                                <td>"Get better at basketball"</td>
+                                <td>"Make 50 free throws in a row"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>M</strong>easurable</td>
+                                <td>You can track progress</td>
+                                <td>"Read more"</td>
+                                <td>"Read 2 books per month"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A</strong>chievable</td>
+                                <td>Challenging but realistic</td>
+                                <td>"Become a millionaire by 18"</td>
+                                <td>"Save $5,000 by graduation"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>R</strong>elevant</td>
+                                <td>Aligns with your bigger picture</td>
+                                <td>"Learn Latin" (if it doesn't serve your goals)</td>
+                                <td>"Learn Spanish" (if you want to work in Latin America)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>T</strong>ime-bound</td>
+                                <td>Has a deadline</td>
+                                <td>"Someday get fit"</td>
+                                <td>"Run 5K by June 1st"</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">✓</div>
-                        <h4>Think Long-Term</h4>
-                        <p>Every decision today affects your future. Choose wisely.</p>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 8: Create Your SMART Goal</h4>
+                        <p>What do you want to achieve?</p>
+                        <input type="text" id="goalDescription" placeholder="e.g., Improve my grades, get fit, learn a skill" />
+                        
+                        <p>Make it Specific - Exactly what will you do?</p>
+                        <input type="text" id="goalSpecific" placeholder="e.g., Raise my math grade from B to A" />
+                        
+                        <p>Make it Measurable - How will you track it?</p>
+                        <input type="text" id="goalMeasurable" placeholder="e.g., Score 90%+ on all tests" />
+                        
+                        <p>Make it Achievable - What steps will you take?</p>
+                        <textarea id="goalSteps" rows="3" placeholder="List the specific actions you'll take"></textarea>
+                        
+                        <p>Make it Relevant - Why does this matter to you?</p>
+                        <input type="text" id="goalWhy" placeholder="Your personal reason/motivation" />
+                        
+                        <p>Make it Time-bound - When will you achieve it?</p>
+                        <input type="date" id="goalDeadline" />
+                        
+                        <button class="calc-btn" onclick="createSMARTGoal()">Create My SMART Goal!</button>
+                        <div id="smartGoalResult" class="result"></div>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">✓</div>
-                        <h4>Keep Learning</h4>
-                        <p>Financial literacy is a lifelong journey. Always keep improving.</p>
+
+                    <h3>Time Management: The Eisenhower Matrix</h3>
+                    <div class="example-box">
+                        <h4>⏰ How to Decide What to Do First</h4>
+                        <p>President Eisenhower's secret to productivity: categorize everything by urgency and importance.</p>
+                        
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>URGENT</th>
+                                <th>NOT URGENT</th>
+                            </tr>
+                            <tr>
+                                <th>IMPORTANT</th>
+                                <td style="background: #ffebee;">
+                                    <strong>DO FIRST</strong><br>
+                                    • Test tomorrow<br>
+                                    • Deadline project<br>
+                                    • Health emergency
+                                </td>
+                                <td style="background: #e8f5e9;">
+                                    <strong>SCHEDULE</strong><br>
+                                    • Study for test next week<br>
+                                    • Exercise<br>
+                                    • Long-term projects
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>NOT IMPORTANT</th>
+                                <td style="background: #fff3e0;">
+                                    <strong>DELEGATE</strong><br>
+                                    • Friend wants help now<br>
+                                    • Some emails<br>
+                                    • Interruptions
+                                </td>
+                                <td style="background: #fce4ec;">
+                                    <strong>DELETE</strong><br>
+                                    • Endless scrolling<br>
+                                    • Drama/gossip<br>
+                                    • Time-wasters
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="tip-box" style="margin-top: 15px;">
+                            <strong>💡 The Key Insight:</strong> Most people spend their lives in the "urgent" columns, constantly putting out fires. Successful people spend most time in the "Important but Not Urgent" quadrant - preventing fires before they start!
+                        </div>
+                    </div>
+
+                    <div class="scenario-card">
+                        <h4>⏰ Time Management Challenge</h4>
+                        <p>It's Sunday night. You have: a math test Monday, a 5-page essay due Wednesday, soccer practice Monday and Tuesday evenings, your friend's birthday party Saturday. What's your plan?</p>
+                        
+                        <div class="choice-buttons">
+                            <button class="choice-btn" onclick="showFeedback('time1', 'a')">
+                                A) Focus only on math test (most urgent), deal with essay Tuesday night
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('time1', 'b')">
+                                B) Study 2 hours tonight for math, outline essay for 1 hour, finish essay early
+                            </button>
+                            <button class="choice-btn" onclick="showFeedback('time1', 'c')">
+                                C) Party plan is most important - work around that first
+                            </button>
+                        </div>
+                        
+                        <div id="time1-feedback" class="feedback"></div>
+                    </div>
+
+                    <h3>Building Resilience & Growth Mindset</h3>
+                    <div class="example-box">
+                        <h4>🧠 Fixed vs. Growth Mindset</h4>
+                        <p>Research by Dr. Carol Dweck shows how your beliefs about ability shape your success:</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Situation</th>
+                                <th>❌ Fixed Mindset</th>
+                                <th>✅ Growth Mindset</th>
+                            </tr>
+                            <tr>
+                                <td>Failed a test</td>
+                                <td>"I'm bad at math"</td>
+                                <td>"I need to study differently"</td>
+                            </tr>
+                            <tr>
+                                <td>Someone criticizes you</td>
+                                <td>"They just don't like me"</td>
+                                <td>"What can I learn from this?"</td>
+                            </tr>
+                            <tr>
+                                <td>Friend succeeds</td>
+                                <td>"They're naturally talented"</td>
+                                <td>"What did they do that I can learn?"</td>
+                            </tr>
+                            <tr>
+                                <td>New challenge</td>
+                                <td>"I can't do this"</td>
+                                <td>"I can't do this YET"</td>
+                            </tr>
+                            <tr>
+                                <td>Making effort</td>
+                                <td>"If I try hard, it means I'm not smart"</td>
+                                <td>"Effort is how I get smarter"</td>
+                            </tr>
+                        </table>
+
+                        <div style="margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 8px;">
+                            <h4>🌟 Real Impact of Growth Mindset</h4>
+                            <p>Students taught about growth mindset showed:</p>
+                            <ul style="padding-left: 20px;">
+                                <li>📈 Higher grades after failure</li>
+                                <li>💪 More persistence on difficult tasks</li>
+                                <li>🎯 Willingness to take on challenges</li>
+                                <li>😊 Better emotional regulation</li>
+                                <li>🤝 More help-seeking behavior (asking questions isn't weakness!)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 9: Reframe Your Fixed Mindset Thoughts</h4>
+                        <p>For each fixed mindset thought, write a growth mindset reframe:</p>
+                        
+                        <div style="margin: 15px 0;">
+                            <p><strong>1. "I'm just not a creative person"</strong></p>
+                            <input type="text" id="reframe1" placeholder="Growth mindset version..." />
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <p><strong>2. "I always mess up presentations"</strong></p>
+                            <input type="text" id="reframe2" placeholder="Growth mindset version..." />
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <p><strong>3. "She's just naturally good at sports, I'm not"</strong></p>
+                            <input type="text" id="reframe3" placeholder="Growth mindset version..." />
+                        </div>
+                        
+                        <button class="calc-btn" onclick="checkReframes()">Check My Reframes</button>
+                        <div id="reframeResult" class="result"></div>
+                    </div>
+
+                    <h3>Daily Habits of Self-Leaders</h3>
+                    <div class="example-box">
+                        <h4>🌅 The Morning Routine That Changed Everything</h4>
+                        <p><strong>Real Story: Marcus, 16</strong></p>
+                        <p>Marcus was always rushed, stressed, forgetting things. Then he tried this:</p>
+                        
+                        <ol style="padding-left: 25px; line-height: 2;">
+                            <li><strong>Wake up 30 minutes earlier</strong> (yes, it's hard at first!)</li>
+                            <li><strong>5-minute gratitude journal:</strong> Write 3 things you're grateful for</li>
+                            <li><strong>10-minute planning:</strong> Review your schedule, set top 3 priorities</li>
+                            <li><strong>15-minute power activity:</strong> Exercise, meditation, or reading</li>
+                        </ol>
+
+                        <p style="margin-top: 15px;"><strong>After 30 days:</strong></p>
+                        <ul style="padding-left: 20px;">
+                            <li>✅ Grades improved from B average to A-/B+</li>
+                            <li>✅ Felt less anxious and more in control</li>
+                            <li>✅ Stopped missing assignments/deadlines</li>
+                            <li>✅ Had energy for after-school activities</li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-activity">
+                        <h4>🎯 Activity 10: Design Your Ideal Day</h4>
+                        <p>Create a realistic schedule that balances all your priorities:</p>
+                        
+                        <ul class="checklist" id="dailyHabits">
+                            <li onclick="toggleCheck(this)">Morning routine (planning, gratitude, exercise)</li>
+                            <li onclick="toggleCheck(this)">Focused study time (phone away, no distractions)</li>
+                            <li onclick="toggleCheck(this)">Physical activity (sports, gym, walking)</li>
+                            <li onclick="toggleCheck(this)">Creative/passion project time</li>
+                            <li onclick="toggleCheck(this)">Social connection time (not just scrolling!)</li>
+                            <li onclick="toggleCheck(this)">Healthy meals (not just snacks on the go)</li>
+                            <li onclick="toggleCheck(this)">Skill development (learning something new)</li>
+                            <li onclick="toggleCheck(this)">Evening reflection (what went well? what to improve?)</li>
+                            <li onclick="toggleCheck(this)">7-9 hours of sleep (non-negotiable!)</li>
+                            <li onclick="toggleCheck(this)">Phone-free time before bed</li>
+                        </ul>
+                        
+                        <button class="calc-btn" onclick="evaluateDailyHabits()">Evaluate My Balance</button>
+                        <div id="habitsResult" class="result"></div>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 The 1% Rule:</strong> You don't need to be perfect. If you improve just 1% every day, you'll be 37 times better in a year (1.01^365 = 37.8). Small, consistent actions compound into massive results!
+                    </div>
+
+                    <h3>Accountability & Self-Evaluation</h3>
+                    <div class="example-box">
+                        <h4>📊 Weekly Self-Check System</h4>
+                        <p>Every Sunday evening, answer these 5 questions honestly:</p>
+                        
+                        <ol style="padding-left: 25px; line-height: 2;">
+                            <li><strong>What were my 3 biggest wins this week?</strong></li>
+                            <li><strong>What didn't go as planned? Why?</strong></li>
+                            <li><strong>Did I move closer to my goals? How?</strong></li>
+                            <li><strong>What will I do differently next week?</strong></li>
+                            <li><strong>What am I grateful for?</strong></li>
+                        </ol>
+
+                        <p style="margin-top: 15px;"><strong>Why this works:</strong> What gets measured gets managed. Regular self-evaluation keeps you honest and on track.</p>
+                    </div>
+
+                    <div class="progress-tracker">
+                        <h4>🎯 Your Learning Progress</h4>
+                        <p>Track which modules you've completed:</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressBar" style="width: 0%">0%</div>
+                        </div>
+                        <p style="margin-top: 10px; text-align: center; color: #666;" id="progressText">Start exploring the modules above!</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer>
-            <p>💚 Financial Literacy for Tanzanian Teenagers | Learn • Save • Grow • Succeed</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Information accurate as of 2024. For current rates and services, please check directly with financial institutions.</p>
-        </footer>
     </div>
-    
+
     <script>
-        document.querySelectorAll('.nav-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.nav-btn').forEach(btn => {
-                    btn.classList.remove('active');
+        let moduleProgress = {
+            money: false,
+            investment: false,
+            entrepreneurship: false,
+            digital: false,
+            leadership: false
+        };
+
+        function showModule(moduleName) {
+            // Hide all modules
+            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            // Show selected module
+            document.getElementById(moduleName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Mark as visited
+            moduleProgress[moduleName] = true;
+            updateProgress();
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function updateProgress() {
+            const completed = Object.values(moduleProgress).filter(v => v).length;
+            const percentage = (completed / 5) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressBar').textContent = Math.round(percentage) + '%';
+            
+            if (percentage === 100) {
+                document.getElementById('progressText').textContent = '🎉 Congratulations! You\'ve explored all modules!';
+            } else {
+                document.getElementById('progressText').textContent = `${completed} of 5 modules explored`;
+            }
+        }
+
+        function calculateBudget() {
+            const income = parseFloat(document.getElementById('income').value);
+            if (!income || income <= 0) {
+                alert('Please enter a valid monthly income!');
+                return;
+            }
+            
+            const needs = income * 0.5;
+            const wants = income * 0.3;
+            const savings = income * 0.2;
+            
+            const result = document.getElementById('budgetResult');
+            result.innerHTML = `
+                <h3>Your 50/30/20 Budget Plan</h3>
+                <p><strong>Total Monthly Income:</strong> $${income.toFixed(2)}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p>💰 <strong>Needs (50%):</strong> $${needs.toFixed(2)}<br>
+                <small>Phone, transport, school supplies, essentials</small></p>
+                <p>🎮 <strong>Wants (30%):</strong> $${wants.toFixed(2)}<br>
+                <small>Entertainment, eating out, hobbies, clothes</small></p>
+                <p>🏦 <strong>Savings (20%):</strong> $${savings.toFixed(2)}<br>
+                <small>Emergency fund, goals, future investments</small></p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>Pro tip:</strong> If you save $${savings.toFixed(2)}/month, that's $${(savings * 12).toFixed(2)}/year!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function calculateGoal() {
+            const goalName = document.getElementById('goalName').value;
+            const goalAmount = parseFloat(document.getElementById('goalAmount').value);
+            const monthlySavings = parseFloat(document.getElementById('monthlySavings').value);
+            
+            if (!goalName || !goalAmount || !monthlySavings || monthlySavings <= 0) {
+                alert('Please fill in all fields with valid numbers!');
+                return;
+            }
+            
+            const months = Math.ceil(goalAmount / monthlySavings);
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+            
+            let timeString = '';
+            if (years > 0) {
+                timeString = `${years} year${years > 1 ? 's' : ''}`;
+                if (remainingMonths > 0) {
+                    timeString += ` and ${remainingMonths} month${remainingMonths > 1 ? 's' : ''}`;
+                }
+            } else {
+                timeString = `${months} month${months > 1 ? 's' : ''}`;
+            }
+            
+            const targetDate = new Date();
+            targetDate.setMonth(targetDate.getMonth() + months);
+            
+            const result = document.getElementById('goalResult');
+            result.innerHTML = `
+                <h3>Your Goal Plan: ${goalName}</h3>
+                <p><strong>Target Amount:</strong> $${goalAmount.toFixed(2)}</p>
+                <p><strong>Monthly Savings:</strong> $${monthlySavings.toFixed(2)}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p>⏱️ <strong>Time to Goal:</strong> ${timeString}</p>
+                <p>📅 <strong>Target Date:</strong> ${targetDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>💡 Motivation:</strong> That's only $${(monthlySavings/30).toFixed(2)} per day. Skip one coffee shop visit and you're there!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function calculateCompound() {
+            const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) / 100;
+            const years = parseFloat(document.getElementById('years').value);
+            
+            if ((!principal && !monthly) || !years || years <= 0) {
+                alert('Please enter valid amounts and time period!');
+                return;
+            }
+            
+            const monthlyRate = rate / 12;
+            const months = years * 12;
+            
+            // Future value of initial investment
+            const fvPrincipal = principal * Math.pow(1 + monthlyRate, months);
+            
+            // Future value of monthly contributions
+            let fvMonthly = 0;
+            if (monthly > 0) {
+                fvMonthly = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+            }
+            
+            const total = fvPrincipal + fvMonthly;
+            const invested = principal + (monthly * months);
+            const gains = total - invested;
+            
+            const result = document.getElementById('compoundResult');
+            result.innerHTML = `
+                <h3>🚀 Your Future Wealth</h3>
+                <p><strong>After ${years} year${years > 1 ? 's' : ''}, you'll have:</strong></p>
+                <h2 style="font-size: 2.5em; margin: 15px 0;">$${total.toFixed(2)}</h2>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p>💵 <strong>Total Invested:</strong> $${invested.toFixed(2)}</p>
+                <p>📈 <strong>Investment Gains:</strong> $${gains.toFixed(2)}</p>
+                <p>🎯 <strong>Return on Investment:</strong> ${((gains/invested)*100).toFixed(1)}%</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>💡 That means compound interest earned you $${(gains/years).toFixed(2)} per year on average!</strong></p>
+            `;
+            result.classList.add('show');
+        }
+
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+        }
+
+        function suggestBusinesses() {
+            const checkedSkills = document.querySelectorAll('#skillsChecklist li.checked');
+            if (checkedSkills.length === 0) {
+                alert('Please check at least one skill that describes you!');
+                return;
+            }
+            
+            const suggestions = {
+                'technology/computers': ['Tech support for neighbors/small businesses', 'Website design', 'Social media management', 'App testing'],
+                'creative': ['Custom art/design (logos, posters, digital art)', 'Content creation (YouTube, TikTok)', 'Photography/videography', 'Handmade crafts (Etsy shop)'],
+                'explaining': ['Tutoring (subjects you excel in)', 'Online course creation', 'YouTube educational channel', 'SAT/ACT prep coaching'],
+                'hands': ['Furniture restoration/upcycling', 'Car detailing', 'Yard work/landscaping', 'Home organization services'],
+                'organized': ['Event planning', 'Virtual assistant services', 'Closet organization', 'Study planning coaching'],
+                'kids or animals': ['Pet sitting/dog walking', 'Babysitting', 'Kids party entertainment', 'Pet training'],
+                'fitness': ['Personal training (get certified!)', 'Sports coaching for younger kids', 'Fitness content creation', 'Nutrition planning'],
+                'social media': ['Social media management for local businesses', 'Influencer consulting', 'Content creation', 'Digital marketing'],
+                'cooking': ['Meal prep service', 'Baking business', 'Cooking lessons', 'Catering for small events'],
+                'fixing': ['Electronics repair', 'Bicycle repair', 'Computer troubleshooting', 'Handyman services']
+            };
+            
+            let allSuggestions = [];
+            checkedSkills.forEach(skill => {
+                const skillText = skill.textContent.toLowerCase();
+                Object.keys(suggestions).forEach(key => {
+                    if (skillText.includes(key)) {
+                        allSuggestions = [...allSuggestions, ...suggestions[key]];
+                    }
                 });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Hide all sections
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // Show selected section
-                const sectionId = this.getAttribute('data-section');
-                document.getElementById(sectionId).classList.add('active');
             });
-        });
+            
+            // Remove duplicates
+            allSuggestions = [...new Set(allSuggestions)];
+            
+            const result = document.getElementById('businessSuggestions');
+            result.innerHTML = `
+                <h3>🎯 Business Ideas Based on Your Strengths:</h3>
+                <ul style="text-align: left; padding-left: 20px; margin-top: 15px;">
+                    ${allSuggestions.slice(0, 6).map(s => `<li style="margin: 8px 0;">${s}</li>`).join('')}
+                </ul>
+                <p style="margin-top: 15px;"><strong>Next Step:</strong> Pick ONE idea and test it with 5 potential customers this week!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function calculateBreakeven() {
+            const costs = parseFloat(document.getElementById('bizCosts').value);
+            const price = parseFloat(document.getElementById('bizPrice').value);
+            
+            if (!costs || !price || price <= 0) {
+                alert('Please enter valid startup costs and price!');
+                return;
+            }
+            
+            const breakeven = Math.ceil(costs / price);
+            
+            const result = document.getElementById('breakevenResult');
+            result.innerHTML = `
+                <h3>📊 Your Breakeven Analysis</h3>
+                <p><strong>Startup Costs:</strong> $${costs.toFixed(2)}</p>
+                <p><strong>Price per Sale:</strong> $${price.toFixed(2)}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p>🎯 <strong>Sales Needed to Break Even:</strong> ${breakeven} sales</p>
+                <p>💰 <strong>After that, every sale is profit!</strong></p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>Pro Tip:</strong> If you can make 2 sales per week, you'll break even in ${Math.ceil(breakeven/2)} weeks!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function calculatePrivacyScore() {
+            const checked = document.querySelectorAll('#privacyChecklist li.checked').length;
+            const total = document.querySelectorAll('#privacyChecklist li').length;
+            const percentage = (checked / total) * 100;
+            
+            let grade, message, color;
+            if (percentage >= 90) {
+                grade = 'A+';
+                message = 'Excellent! You\'re a privacy pro!';
+                color = '#28a745';
+            } else if (percentage >= 70) {
+                grade = 'B';
+                message = 'Good job! A few improvements and you\'ll be excellent.';
+                color = '#17a2b8';
+            } else if (percentage >= 50) {
+                grade = 'C';
+                message = 'Decent start, but you need to protect yourself better.';
+                color = '#ffc107';
+            } else {
+                grade = 'D';
+                message = 'Warning: You\'re at high risk. Start implementing these protections now!';
+                color = '#dc3545';
+            }
+            
+            const result = document.getElementById('privacyScore');
+            result.style.background = color;
+            result.innerHTML = `
+                <h3>Your Privacy Score: ${grade}</h3>
+                <p><strong>${checked} out of ${total} protections in place</strong></p>
+                <p>${message}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>Action Item:</strong> Focus on unchecked items - each one significantly reduces your risk!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function showFeedback(scenarioId, choice) {
+            const feedback = document.getElementById(scenarioId + '-feedback');
+            
+            const scenarios = {
+                'scenario1': {
+                    'a': {correct: false, text: 'Not the best choice. While experiences are valuable, you\'re only $50 away from your gaming console goal! This delays it by 4 more months. Consider: Could you go to the concert AND stay on track by finding ways to earn extra money this week?'},
+                    'b': {correct: true, text: 'Smart! This gets you to your goal in just 2 more months. Plus, you\'ll appreciate the console more knowing you stuck to your plan. But remember - balance is important. Maybe celebrate reaching your goal with a smaller fun purchase?'},
+                    'c': {correct: true, text: 'Great balanced approach! You\'re staying mostly on track (only 1 extra month to your goal) while still enjoying some of your birthday money. This is realistic goal-setting - not all or nothing!'}
+                },
+                'investment1': {
+                    'a': {correct: false, text: 'Safe, but you\'re losing to inflation! After 10 years, your $1,000 becomes only $1,105. Meanwhile, prices probably went up 20-30%. You actually LOST buying power. For long-term money, take smart risks!'},
+                    'b': {correct: true, text: 'Excellent choice! Index funds average 8-10% over time. Yes, some years are down, but over 10 years, history shows you\'ll likely have $2,500-2,700. The ups and downs smooth out with time. This is how wealth is built!'},
+                    'c': {correct: false, text: 'Too risky for most of your money! Individual stocks can pay off big OR lose everything. Maybe put 90% in index funds (choice B) and 10% in individual stocks to learn. Never bet everything on individual companies!'}
+                },
+                'marketing1': {
+                    'a': {correct: false, text: 'Passive posting rarely works. Social media algorithms hide posts unless they get quick engagement. You need a strategy to stand out, not just hope someone sees your one post!'},
+                    'b': {correct: true, text: 'Brilliant! You\'re creating valuable content (before/after transformations are viral gold), proving your work quality, and the "free first lawn" is an investment in marketing content. This is how to bootstrap a business with $0!'},
+                    'c': {correct: false, text: 'Illegal in most places to use mailboxes! Plus, flyers have a 1-2% response rate. You\'d spend money printing and hours distributing for maybe 5-10 calls. Digital content reaches thousands for free and builds trust through demonstration.'}
+                },
+                'digital1': {
+                    'a': {correct: false, text: 'Popularity ≠ Truth! Misinformation spreads faster than facts. 10,000 shares mean it\'s viral, not verified. Always apply the CRAAP test before believing anything, no matter how many people shared it!'},
+                    'b': {correct: true, text: 'Perfect critical thinking! This has all the red flags: no named scientists, no source, "share to unlock" (classic manipulation), too-good-to-be-true claim. Always check: Who said it? Where\'s the evidence? What\'s the source?'},
+                    'c': {correct: false, text: 'Actually, it DOES matter! Misinformation shapes opinions, spreads fear, and influences decisions. Even "harmless" fake posts train your brain to accept unverified information. Treat every claim as important to verify!'}
+                },
+                'digital2': {
+                    'a': {correct: false, text: 'Big mistake! Your "friends only" audience includes: friends of friends who screenshot, parents who check accounts, college admissions officers who Google you, future employers. Once it\'s online, you\'ve lost control. Assume everything is public!'},
+                    'b': {correct: true, text: 'Smart boundary! True friends respect your concerns. You can enjoy the moment without it becoming permanent public record. Suggest alternatives: they can post it to a Close Friends story, or blur your face, or keep it for private group chat.'},
+                    'c': {correct: true, text: 'Better than nothing, but remember "private" isn\'t foolproof - friends can still screenshot and share. This reduces risk but doesn\'t eliminate it. Best approach is always to assume anything filmed might go public eventually!'}
+                },
+                'time1': {
+                    'a': {correct: false, text: 'Classic "urgent" trap! You\'ll ace the test but then panic-write your essay Tuesday night (when you\'re tired from soccer). This creates MORE stress. Better to balance both important tasks now when you have time!'},
+                    'b': {correct: true, text: 'Excellent strategic thinking! You\'re handling the urgent (test) AND preventing a crisis (essay). By outlining tonight, you can write 1-2 pages Monday evening, 2-3 pages Tuesday, and have time to edit. This is the "Important but Not Urgent" quadrant - where successful people live!'},
+                    'c': {correct: false, text: 'Priorities confused! The party is neither urgent nor truly important compared to your test and essay. This is the "Delete" quadrant. Plan the party in your remaining free time AFTER handling what actually affects your future!'}
+                }
+            };
+            
+            const response = scenarios[scenarioId][choice];
+            feedback.className = 'feedback show ' + (response.correct ? 'correct' : 'incorrect');
+            feedback.innerHTML = `
+                <strong>${response.correct ? '✅ Great Choice!' : '❌ Not the Best Choice'}</strong><br><br>
+                ${response.text}
+            `;
+        }
+
+        function createSMARTGoal() {
+            const description = document.getElementById('goalDescription').value;
+            const specific = document.getElementById('goalSpecific').value;
+            const measurable = document.getElementById('goalMeasurable').value;
+            const steps = document.getElementById('goalSteps').value;
+            const why = document.getElementById('goalWhy').value;
+            const deadline = document.getElementById('goalDeadline').value;
+            
+            if (!description || !specific || !measurable || !steps || !why || !deadline) {
+                alert('Please fill in all fields to create your SMART goal!');
+                return;
+            }
+            
+            const deadlineDate = new Date(deadline);
+            const today = new Date();
+            const daysUntil = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24));
+            
+            const result = document.getElementById('smartGoalResult');
+            result.innerHTML = `
+                <h3>🎯 Your SMART Goal Blueprint</h3>
+                <div style="text-align: left; margin-top: 15px;">
+                    <p><strong>Goal:</strong> ${description}</p>
+                    <hr style="margin: 10px 0; border: none; border-top: 1px solid white;">
+                    <p><strong>✅ Specific:</strong> ${specific}</p>
+                    <p><strong>📊 Measurable:</strong> ${measurable}</p>
+                    <p><strong>🎬 Action Steps:</strong><br>${steps.split('\n').map(s => '• ' + s).join('<br>')}</p>
+                    <p><strong>❤️ Why It Matters:</strong> ${why}</p>
+                    <p><strong>⏰ Deadline:</strong> ${deadlineDate.toLocaleDateString()} (${daysUntil} days from now)</p>
+                </div>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>Next Step:</strong> Screenshot this, print it, or write it somewhere you'll see daily. Review your progress every Sunday!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        function checkReframes() {
+            const reframe1 = document.getElementById('reframe1').value.toLowerCase();
+            const reframe2 = document.getElementById('reframe2').value.toLowerCase();
+            const reframe3 = document.getElementById('reframe3').value.toLowerCase();
+            
+            if (!reframe1 || !reframe2 || !reframe3) {
+                alert('Please fill in all three reframes!');
+                return;
+            }
+            
+            const goodWords = ['yet', 'learn', 'practice', 'improve', 'develop', 'grow', 'try', 'work on', 'build', 'train'];
+            
+            let score = 0;
+            if (goodWords.some(word => reframe1.includes(word))) score++;
+            if (goodWords.some(word => reframe2.includes(word))) score++;
+            if (goodWords.some(word => reframe3.includes(word))) score++;
+            
+            const result = document.getElementById('reframeResult');
+            let feedback = '';
+            
+            if (score === 3) {
+                feedback = `<h3>🌟 Excellent Growth Mindset!</h3>
+                    <p>All three reframes show growth mindset thinking. You understand that abilities can be developed through effort!</p>
+                    <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                    <p><strong>Sample reframes:</strong></p>
+                    <ol style="text-align: left; padding-left: 25px;">
+                        <li>"I haven't developed my creative skills <strong>yet</strong>, but I can practice"</li>
+                        <li>"I'm still <strong>learning</strong> presentation skills - each one teaches me something"</li>
+                        <li>"She's practiced more than I have - I can <strong>improve</strong> with consistent training"</li>
+                    </ol>`;
+            } else if (score === 2) {
+                feedback = `<h3>👍 Good Progress!</h3>
+                    <p>Two out of three show growth mindset. You're on the right track!</p>
+                    <p><strong>Remember:</strong> Replace "I am/I'm not" with "I haven't yet/I'm learning to"</p>`;
+            } else {
+                feedback = `<h3>💪 Keep Practicing!</h3>
+                    <p>Growth mindset takes practice. Key words to use: <strong>yet, learn, practice, improve, develop</strong></p>
+                    <p><strong>The formula:</strong> Instead of "I'm not X" → "I haven't learned X yet, but I can with practice"</p>`;
+            }
+            
+            result.innerHTML = feedback;
+            result.classList.add('show');
+        }
+
+        function evaluateDailyHabits() {
+            const checked = document.querySelectorAll('#dailyHabits li.checked').length;
+            const total = document.querySelectorAll('#dailyHabits li').length;
+            const percentage = (checked / total) * 100;
+            
+            let evaluation, color;
+            if (percentage >= 80) {
+                evaluation = '🌟 Excellent balance! You\'re building a sustainable, well-rounded life. This is self-leadership in action!';
+                color = '#28a745';
+            } else if (percentage >= 60) {
+                evaluation = '👍 Good foundation! You\'re covering most bases. Focus on adding the unchecked items gradually - one new habit at a time.';
+                color = '#17a2b8';
+            } else if (percentage >= 40) {
+                evaluation = '⚠️ Decent start, but you\'re likely feeling stressed or unbalanced. Pick 2-3 unchecked items to add this week.';
+                color = '#ffc107';
+            } else {
+                evaluation = '🚨 Warning: You\'re probably burned out or unfocused. Don\'t try to fix everything at once - start with sleep and morning routine, then build from there.';
+                color = '#dc3545';
+            }
+            
+            const result = document.getElementById('habitsResult');
+            result.style.background = color;
+            result.innerHTML = `
+                <h3>Your Daily Balance Score: ${checked}/${total}</h3>
+                <p>${evaluation}</p>
+                <hr style="margin: 15px 0; border: none; border-top: 2px solid white;">
+                <p><strong>Remember:</strong> You don't need perfect days. You need a system that works consistently. Start small, build momentum, and adjust as you learn what works for YOU!</p>
+            `;
+            result.classList.add('show');
+        }
+
+        // Initialize progress on page load
+        updateProgress();
     </script>
 </body>
 </html>
